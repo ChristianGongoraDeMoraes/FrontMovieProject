@@ -1,3 +1,21 @@
+page Movies
+![moviesSemQuery](https://github.com/user-attachments/assets/0e29997b-23e6-4f4e-8617-bc4b4da6c277)
+
+searching John
+![moviesJohn](https://github.com/user-attachments/assets/67a8d528-f470-40b1-a006-8087b551815c)
+
+searching Son
+![moviesSon](https://github.com/user-attachments/assets/1565178c-8600-4de8-aef3-11456dd341f5)
+
+Saving NewMovie
+![salvandoHulk](https://github.com/user-attachments/assets/fed1868f-ea64-4e6c-835b-cc0bd351a246)
+
+Result NewMovie
+![hulkSalvo](https://github.com/user-attachments/assets/14dc2b6d-c0e4-47da-ac30-269e2f56c2e7)
+
+
+
+
 # FrontMovieProject
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
