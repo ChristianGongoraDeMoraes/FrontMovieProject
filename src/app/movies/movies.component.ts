@@ -27,6 +27,11 @@ export class MoviesComponent implements OnInit{
   }
 
   searchQuery(event: any){
+    if(event.target.value === ''){
+      this.movies = [];
+      return this.getMovies();
+    }
+
     this.http.getMovieByNameLike(event.target.value).subscribe({
       next: (data: any) =>{
         this.movies = [];
