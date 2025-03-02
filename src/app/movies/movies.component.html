@@ -1,6 +1,7 @@
 <app-header/>
 <div class="shadowBoxHeader"></div>
-<div>
+<div class="search"><input type="text" placeholder="Search" (change)="searchQuery($event)"></div>
+<div class="movies">
     @for (movie of movies; track movie.name) {
         <li>
             <div class="cardMovie">

@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from '../components/header/header.component';
 import { HttpService } from '../services/http.service';
+import { FormsModule } from '@angular/forms';
 
 type Movie = {
   id: Number,
@@ -11,7 +12,7 @@ type Movie = {
 
 @Component({
   selector: 'app-movies',
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, FormsModule],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss'
 })
@@ -25,6 +26,19 @@ export class MoviesComponent implements OnInit{
       this.getMovies();
   }
 
+  searchQuery(event: any){
+    this.http.getMovieByNameLike(event.target.value).subscribe({
+      next: (data: any) =>{
+        this.movies = [];
+        for(let movie of data){
+          this.movies.push(movie)
+        }
+      },
+      error: (error: any) =>{
+        console.log('Erro');
+      }
+    })
+  }
 
 
   getMovies(){

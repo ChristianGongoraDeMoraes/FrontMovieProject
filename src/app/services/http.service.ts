@@ -22,6 +22,11 @@ export class HttpService {
       return this.http.get(_url);
   }
 
+  getMovieByNameLike(name: string): Observable<any>{
+    let _url: string = (this.url + `Api/Movie/searchLike/${name}`);
+    return this.http.get(_url);
+  }
+
   postNewMovie(movie: reqNewMovie): Observable<any>{
     let _url: string = (this.url + "Api/Movie")
     return this.http.post(_url, movie);
