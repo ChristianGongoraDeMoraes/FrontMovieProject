@@ -1,0 +1,41 @@
+div{
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: x-large;
+    li{
+        list-style-type: none;
+
+        .cardMovie{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+
+            width: 150px;
+            height: 300px;
+
+            border: 2px solid black;
+            border-radius: 15px;
+            box-shadow: black 1px 1px 5px 1px;
+
+
+            img{
+                height: 100px;
+                width: 100%;
+                border-radius: 10px;
+            }
+            
+            p{
+                color: white;
+                font-size: 13px;
+                padding: 10px;
+                overflow: hidden;
+            }
+        }
+    }
+}
