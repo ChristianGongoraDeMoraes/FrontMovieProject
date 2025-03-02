@@ -1,0 +1,17 @@
+<app-header/>
+<div>
+    <form class="formMovie">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" [(ngModel)]="name"/>
+
+        <label for="rate">Rate</label>
+        <input type="text" id="rate" name="rate" [(ngModel)]="rate"/>
+
+        <label for="description">Description</label>
+        <textarea class="desc" type="text" id="description" name="description" [(ngModel)]="description"></textarea>
+
+        <input type="file" id="image" (change)="onFileSelected($event)"/>
+
+        <button (click)="sendForm()">Send</button>
+    </form>
+</div>

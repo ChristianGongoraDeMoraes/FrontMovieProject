@@ -1,11 +1,13 @@
 <app-header/>
+<div class="shadowBoxHeader"></div>
 <div>
     @for (movie of movies; track movie.name) {
         <li>
             <div class="cardMovie">
                 <img src="http://localhost:8080/image/get/image/movie/{{movie.name}}"/>
                 <p> {{ movie.name }} </p>
-                <p> {{ movie.description }} </p>
+                <p> {{ movie.rate }}</p>
+                <p class="desc"> {{ movie.description }} </p>
             </div>
         </li>
 
