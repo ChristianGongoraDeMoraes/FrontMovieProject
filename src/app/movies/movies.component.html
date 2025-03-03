@@ -4,7 +4,7 @@
 <div class="movies">
     @for (movie of movies; track movie.name) {
         <li>
-            <div class="cardMovie">
+            <div class="cardMovie" (click)="showMovie(movie.name)">
                 <img src="http://localhost:8080/image/get/image/movie/{{movie.name}}"/>
                 <p> {{ movie.name }} </p>
                 <p> {{ movie.rate }}</p>

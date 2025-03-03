@@ -2,12 +2,14 @@ import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from '../components/header/header.component';
 import { HttpService } from '../services/http.service';
 import { FormsModule } from '@angular/forms';
+import { CardToShowService } from '../services/dts/card-to-show.service';
+import { Router } from '@angular/router';
 
 type Movie = {
   id: Number,
-  name: String,
-  rate: String,
-  description: String
+  name: string,
+  rate: string,
+  description: string
 }
 
 @Component({
@@ -20,10 +22,21 @@ export class MoviesComponent implements OnInit{
   movies: Array<Movie> = [];
   
   http = inject(HttpService);
+  dtsShowMovie = inject(CardToShowService);
+  router = inject(Router);
 
 
   ngOnInit(): void {
       this.getMovies();
+  }
+
+  showMovie(name: string){
+    for(let movie of this.movies){
+      if(movie.name == name){
+        this.dtsShowMovie.setMovie(movie.name, movie.rate, movie.description);
+        this.router.navigate(['showMovie']);
+      }
+    }
   }
 
   searchQuery(event: any){
