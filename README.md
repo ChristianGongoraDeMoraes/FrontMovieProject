@@ -13,6 +13,11 @@ Saving NewMovie
 Result NewMovie
 ![hulkSalvo](https://github.com/user-attachments/assets/14dc2b6d-c0e4-47da-ac30-269e2f56c2e7)
 
+Card Page Mobile
+![cardPageStretched](https://github.com/user-attachments/assets/c41d13c9-9506-4037-a98b-91aec7846d73)
+
+Card Page
+![cardPage](https://github.com/user-attachments/assets/f9edcc3b-b4c3-4769-96b4-8ae88ce83d3d)
 
 
 
