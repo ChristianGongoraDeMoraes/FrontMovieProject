@@ -9,4 +9,21 @@
             <p>{{movie.desc}}</p>
         </div>
     </div>
+    <div class="chat">
+        <form>
+            <input type="text" placeholder="Make a Comment" [(ngModel)]="newComment" name="comment"/>
+            <button (click)="addNewComment()">Add</button>
+        </form>
+        @for (comment of comments; track comment.id) {
+            <li>
+                <div class="comment">
+                    <p> {{ comment.body }} </p>
+                </div>
+            </li>
+
+
+        } @empty {
+            <li>There are no items.</li>
+        }
+    </div>
 </div>

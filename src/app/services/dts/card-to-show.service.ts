@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 type Movie = {
+  id: number,
   name:string,
   rate:string,
   desc:string
@@ -13,9 +14,10 @@ export class CardToShowService {
 
   constructor() { }
 
-  movie: Movie = { name: '',rate: '', desc: '' };
+  movie: Movie = { id: 0,name: '',rate: '', desc: '' };
 
-  setMovie(name:string, rate:string, desc:string){
+  setMovie(id:number ,name:string, rate:string, desc:string){
+    this.movie.id = id;
     this.movie.name = name;
     this.movie.rate = rate;
     this.movie.desc = desc;

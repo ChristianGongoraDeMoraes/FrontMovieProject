@@ -3,5 +3,6 @@ main{
     width: 100%;
     background-color: #ffffff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    position: fixed;
+    
+    overflow-x: scroll;
 }

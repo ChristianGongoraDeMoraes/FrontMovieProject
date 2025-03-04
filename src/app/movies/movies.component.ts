@@ -6,7 +6,7 @@ import { CardToShowService } from '../services/dts/card-to-show.service';
 import { Router } from '@angular/router';
 
 type Movie = {
-  id: Number,
+  id: number,
   name: string,
   rate: string,
   description: string
@@ -33,7 +33,7 @@ export class MoviesComponent implements OnInit{
   showMovie(name: string){
     for(let movie of this.movies){
       if(movie.name == name){
-        this.dtsShowMovie.setMovie(movie.name, movie.rate, movie.description);
+        this.dtsShowMovie.setMovie(movie.id, movie.name, movie.rate, movie.description);
         this.router.navigate(['showMovie']);
       }
     }
