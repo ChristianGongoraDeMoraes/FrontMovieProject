@@ -4,6 +4,7 @@ import { HttpService } from '../services/http.service';
 import { FormsModule } from '@angular/forms';
 import { CardToShowService } from '../services/dts/card-to-show.service';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 type Movie = {
   id: number,
@@ -14,7 +15,7 @@ type Movie = {
 
 @Component({
   selector: 'app-movies',
-  imports: [HeaderComponent, FormsModule],
+  imports: [HeaderComponent, FormsModule, MatIconModule],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss'
 })

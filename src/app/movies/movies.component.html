@@ -1,19 +1,27 @@
-<app-header/>
-<div class="shadowBoxHeader"></div>
-<div class="search"><input type="text" placeholder="Search" (change)="searchQuery($event)"></div>
-<div class="movies">
-    @for (movie of movies; track movie.name) {
-        <li>
-            <div class="cardMovie" (click)="showMovie(movie.name)">
-                <img src="http://localhost:8080/image/get/image/movie/{{movie.name}}"/>
-                <p> {{ movie.name }} </p>
-                <p> {{ movie.rate }}</p>
-                <p class="desc"> {{ movie.description }} </p>
-            </div>
-        </li>
-
-
-    } @empty {
-        <li>There are no items.</li>
-    }
+<div class="superDiv">
+    <app-header/>
+    <div class="shadowBoxHeader"></div>
+    <div class="search"><input type="text" placeholder="Search" (change)="searchQuery($event)">
+        <span class="buttonSearch">
+            <mat-icon>
+                search
+            </mat-icon>
+        </span>
+    </div>
+    <div class="movies">
+        @for (movie of movies; track movie.name) {
+            <li>
+                <div class="cardMovie" (click)="showMovie(movie.name)">
+                    <img src="http://localhost:8080/image/get/image/movie/{{movie.name}}"/>
+                    <p> {{ movie.name }} </p>
+                    <p> {{ movie.rate }}</p>
+                    <p class="desc"> {{ movie.description }} </p>
+                </div>
+            </li>
+    
+    
+        } @empty {
+            <li class="noitems">There are no items.</li>
+        }
+    </div>
 </div>

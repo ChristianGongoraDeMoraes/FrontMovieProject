@@ -3,6 +3,7 @@ import { HeaderComponent } from '../components/header/header.component';
 import { CardToShowService } from '../services/dts/card-to-show.service';
 import { HttpService } from '../services/http.service';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 type Movie = {
   id: number,
@@ -17,7 +18,7 @@ type Comment = {
 
 @Component({
   selector: 'app-show-movie',
-  imports: [HeaderComponent, FormsModule],
+  imports: [HeaderComponent, FormsModule, MatIconModule],
   templateUrl: './show-movie.component.html',
   styleUrl: './show-movie.component.scss'
 })
@@ -67,5 +68,14 @@ export class ShowMovieComponent implements OnInit{
     this.newComment = '';
     this.comments = [];
     this.getAllComments();
+  }
+
+  commentindex(comment: any){
+    for(let c of this.comments){
+      if(c.id == comment.id){
+        return this.comments.indexOf(comment);
+      }
+    }
+    return 0;
   }
 }

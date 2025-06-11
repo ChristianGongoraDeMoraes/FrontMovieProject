@@ -1,14 +1,14 @@
 <app-header/>
-<div>
+<div class="superDiv">
     <form class="formMovie">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" [(ngModel)]="name"/>
+        <input type="text" id="name" name="name" [(ngModel)]="name" placeholder="Name"/>
 
         <label for="rate">Rate</label>
-        <input type="text" id="rate" name="rate" [(ngModel)]="rate"/>
+        <input type="text" id="rate" name="rate" [(ngModel)]="rate" placeholder="5.0"/>
 
         <label for="description">Description</label>
-        <textarea class="desc" type="text" id="description" name="description" [(ngModel)]="description"></textarea>
+        <textarea class="desc" type="text" id="description" name="description" [(ngModel)]="description" placeholder="my awesome description"></textarea>
 
         <input type="file" id="image" (change)="onFileSelected($event)"/>
 

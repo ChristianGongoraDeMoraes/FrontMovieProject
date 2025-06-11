@@ -1,29 +1,36 @@
 <app-header/>
 <div class="shadowBoxHeader"></div>
 <div class="container">
-    <div class="card">
-        <img src="http://localhost:8080/image/get/image/movie/{{movie.name}}"/>
-        <div class="infos">
-            <p>{{movie.name}}</p>
-            <p>{{movie.rate}}</p>
-            <p>{{movie.desc}}</p>
+    <div class="bugHeight">
+        <div class="card">
+            <img src="http://localhost:8080/image/get/image/movie/{{movie.name}}"/>
+            <div class="infos">
+                <p>{{movie.name}}</p>
+                <p>{{movie.rate}}</p>
+                <p>{{movie.desc}}</p>
+            </div>
         </div>
-    </div>
-    <div class="chat">
-        <form>
-            <input type="text" placeholder="Make a Comment" [(ngModel)]="newComment" name="comment"/>
-            <button (click)="addNewComment()">Add</button>
-        </form>
-        @for (comment of comments; track comment.id) {
-            <li>
-                <div class="comment">
-                    <p> {{ comment.body }} </p>
-                </div>
-            </li>
-
-
-        } @empty {
-            <li>There are no items.</li>
-        }
+        <div class="chat">
+            <form>
+                <input type="text" placeholder="Make a Comment" [(ngModel)]="newComment" name="comment"/>
+                <button (click)="addNewComment()">
+                    <mat-icon>
+                        send
+                    </mat-icon>
+                </button>
+            </form>
+            @for (comment of comments; track comment.id) {
+                <li>
+                    <div class="comment">
+                        <p class="name">Anonymous nº{{commentindex(comment)}} :&nbsp;</p>
+                        <p> {{ comment.body }} </p>
+                    </div>
+                </li>
+    
+    
+            } @empty {
+                <li>There are no items.</li>
+            }
+        </div>
     </div>
 </div>
