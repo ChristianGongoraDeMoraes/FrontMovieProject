@@ -26,6 +26,18 @@ export class HttpService {
     let _url: string = (this.url + `comments/${id}`)
     return this.http.get(_url);
   }
+  getTopTen(): Observable<any>{
+    let _url: string = (this.url + `api/views/topten`)
+    return this.http.get(_url);
+  }
+  postViews(movieId: any): Observable<any>{
+    let _url: string = (this.url + `api/views`)
+    const body = {
+      movieId : movieId
+    }
+    return this.http.post(_url, body);
+  }
+
 
   postNewComment(id: number, newComment: string){
     let _url:string = (this.url + `comments/newComment`)

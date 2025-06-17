@@ -36,6 +36,19 @@ export class ShowMovieComponent implements OnInit{
     this.movie = this.dtsShowMovie.getMovie();
 
     this.getAllComments();
+
+    this.postViwes();
+  }
+
+  postViwes(){
+    this.http.postViews(this.movie.id).subscribe({
+      next: (data: any) => {
+        console.log('view sended')
+      },
+      error: (error: any) => {
+        console.log('error send views')
+      }
+    });
   }
 
   addNewComment(){

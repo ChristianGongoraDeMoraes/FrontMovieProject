@@ -1,10 +1,16 @@
 <div class="superDiv">
     <app-header/>
     <div class="shadowBoxHeader"></div>
-    <div class="search"><input type="text" placeholder="Search" (change)="searchQuery($event)">
+    <div class="search">
+        <input type="text" placeholder="Search" (change)="searchQuery($event)">
         <span class="buttonSearch">
             <mat-icon>
                 search
+            </mat-icon>
+        </span>
+         <span class="buttonFire" routerLink="/topten">
+            <mat-icon>
+                local_fire_department
             </mat-icon>
         </span>
     </div>
