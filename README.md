@@ -1,3 +1,7 @@
+![image](https://github.com/user-attachments/assets/acf15c51-4a20-4aa4-a36a-443c6002a352)
+
+Att 22/06:
+
 page Movies
 ![moviesSemQuery](https://github.com/user-attachments/assets/0e29997b-23e6-4f4e-8617-bc4b4da6c277)
 
