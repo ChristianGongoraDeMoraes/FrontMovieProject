@@ -15,7 +15,8 @@ type Movie = {
 
 @Component({
   selector: 'app-movies',
-  imports: [HeaderComponent, FormsModule, MatIconModule, RouterLink],
+  imports: [//HeaderComponent,
+     FormsModule, MatIconModule, RouterLink],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss'
 })

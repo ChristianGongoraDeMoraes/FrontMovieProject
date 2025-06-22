@@ -1,16 +1,21 @@
 <div class="superDiv">
-    <app-header/>
-    <div class="shadowBoxHeader"></div>
+    <!--<app-header/>
+    <div class="shadowBoxHeader"></div>-->
     <div class="search">
         <input type="text" placeholder="Search" (change)="searchQuery($event)">
         <span class="buttonSearch">
             <mat-icon>
                 search
             </mat-icon>
-        </span>
+         </span>
          <span class="buttonFire" routerLink="/topten">
             <mat-icon>
                 local_fire_department
+            </mat-icon>
+        </span>
+        <span class="buttonAdd" routerLink="/NewMovie">
+            <mat-icon>
+                add
             </mat-icon>
         </span>
     </div>
@@ -18,9 +23,9 @@
         @for (movie of movies; track movie.name) {
             <li>
                 <div class="cardMovie" (click)="showMovie(movie.name)">
-                    <img src="http://localhost:8080/image/get/image/movie/{{movie.name}}"/>
+                    <img class="img" src="http://localhost:8080/image/get/image/movie/{{movie.name}}"/>
                     <p> {{ movie.name }} </p>
-                    <p> {{ movie.rate }}</p>
+                    <p> {{ movie.rate }}<img class="star" src="/star.png"></p>
                     <p class="desc"> {{ movie.description }} </p>
                 </div>
             </li>

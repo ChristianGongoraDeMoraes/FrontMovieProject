@@ -5,9 +5,9 @@
         @for (movie of movies; track movie.movieViews.id) {
            <li>
                <div class="card" (click)="showMovie(movie.movieViews.name)">
-                   <p>{{indexMovie(movie.movieViews.name)}}</p>
+                   
                    <img src="http://localhost:8080/image/get/image/movie/{{movie.movieViews.name}}" alt=""/>
-                   <p>{{movie.movieViews.name}}</p>
+                   <p>{{indexMovie(movie.movieViews.name)}}. {{movie.movieViews.name}}</p>
                    <p>{{movie.movieViews.rate}} <img class="star"src="/star.png"/></p>
                    <p class="desc">{{movie.movieViews.description}}</p>
                </div>

@@ -1,17 +1,31 @@
 .superDiv{
-    height: 100%;
+    min-height: 100%;
     width: 100%;
 
+    
+    background: linear-gradient(45deg, 
+        black 0%,
+        #a5a5a5 30%,
+        rgb(216, 216, 216) 70%,
+        rgb(255, 255, 255) 100%)
+        repeat 0% 0% / 300% 100%;
+        background-attachment: fixed;
+        backdrop-filter: blur(50px);
+
+    z-index: -50;
     .shadowBoxHeader{
         height: 70px;
     }
     
     .search{
         width: 100%;
+        //margin: 5px auto;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 20px;
+        padding: 10px;
+        border-bottom: white 1px solid;
+        
     
         .buttonFire{
             padding: 10px 13px;
@@ -19,7 +33,7 @@
             text-shadow: black 0.1px 0.1px 1px;
             border-radius: 100px;
             background-image: linear-gradient(30deg, white 0%, orange 30%, rgb(148, 79, 0)60%, rgb(145, 0, 0)80%, red 100%);
-            margin-right: 5px;
+            margin-left: 5px;
             border: 1px solid black;
         }
          .buttonFire:hover{
@@ -41,7 +55,7 @@
     
             width: 50px;
             height: 50px;
-    
+
             background-color: gray;
             border-radius: 100px;
             border: 1px solid rgb(255, 255, 255);
@@ -54,86 +68,149 @@
             cursor: pointer;
             background-color: rgb(78, 78, 78);
         }
+        .buttonAdd{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            width: 50px;
+            height: 50px;
+    
+            background-color: gray;
+            border-radius: 100px;
+            border: 1px solid rgb(255, 255, 255);
+    
+            color:white;
+    
+            margin-left: 3px;
+        }
+        .buttonAdd:hover{
+            cursor: pointer;
+            background-color: rgb(78, 78, 78);
+        }
     }
     
     .movies{
         position:relative;
         overflow: auto;
     
-        height: 80%;
-        margin: 10px 20px;
+        height: auto;
+
+        margin: 0px 20px;
         display: flex;
         justify-content: center;
         align-items: start;
     
         flex-wrap: wrap;
-        gap: 15px;
-        color: white;
+        gap: 10px;
+        padding-top: 10px;
         li{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             position: relative;
             list-style-type: none;
-    
+            width: 200px;
+            height: 300px;
             .cardMovie{
+                z-index: 99;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: end;
                 align-items: center;
                 gap: 0;
     
-                width: 150px;
-                height: 300px;
-    
-                border: 2px solid black;
-                border-radius: 15px;
-                box-shadow: black 1px 1px 5px 1px;
-    
-                img{
-                    height: 150px;
-                    width: 100%;
-                    border-top-right-radius: 10px;
-                    border-top-left-radius: 10px;
+                width: 90%;
+                height: 90%;
+                .img{
+                    position: absolute;
+                    z-index: -1;
+                    //height: 150px;
+                    //width: 100%;
+                    width: 90%;
+                    height: 90%;
+                    //top: 0;
+                    //left: 0;
+                    border-radius: 15px;
+                    box-shadow: black 0.1px 0.1px 5px 2px;
+                    //border-top-right-radius: 10px;
+                    //border-top-left-radius: 10px;
                 }
                     
                 p{
+                    background-color: rgba(0, 0, 0, 0.747);
+                    border-radius: 20px;
+                    z-index: 2;
                     text-align: center;
-                    border-bottom: 2px solid black;
+                    border: 2px solid black;
                     width: 80%;
-                    text-shadow: 1px 1px 1px rgb(167, 167, 167);
                     margin: 0;
                     padding: 3px;
     
-                    color: rgb(0, 0, 0);
+                    color: rgb(255, 255, 255);
                     font-size: 13px;
+                    .star{
+                        height: 10px;
+                        width: 10px;
+                        margin-left: 5px;
+                        box-shadow: white 0.1px 0.1px 5px 1px;
+                        border-radius: 100%;
+                    }
                 }
                 .desc{
+                    display: none;
+
                     text-align: center;
-                    border-bottom: 2px solid black;
+                    border: 2px solid black;
                     width: 80%;
-                    color: rgb(0, 0, 0);
+                    color: rgb(255, 255, 255);
                     font-size: 13px;
                     overflow: hidden;
-                    text-shadow: 1px 1px 1px rgb(161, 161, 161);
                 }
             }
-            .cardMovie::before{
-                position: absolute;
-                content:" ";
-                cursor: pointer;
-                border-radius: 15px;
+            
+            
+        }
+        li::before{
+            //transform: translateZ(100);
+            z-index: 999;
+            position: absolute;
+            content:" ";
+            cursor: pointer;
+            border-radius: 15px;
+            width: 90%;
+            height: 90%;
+            //top:0px;
+            //left:0px;
+            //background-color: rgba(255, 255, 255, 0.253);
+        }
+
+        li:hover{
+            //filter: blur(5px);
+            .cardMovie{
                 width: 100%;
                 height: 100%;
-                top:0px;
-                left:0px;
-                background-color: transparent;
+                justify-content: center;
+                align-items: center;
+                .img{
+                     width: 100%;
+                     height: 100%;
+                 }
+                 .desc{
+                     display: block;
+                 }
+                 p{
+                    z-index: 11;
+                    cursor: pointer;
+                 }
             }
-    
-            .cardMovie:hover::before{
-                filter: blur(5px);
-                background-color: rgba(255, 255, 255, 0.2);
-                box-shadow: white 1px 1px 5px 1px;
-                z-index: 1;
-            }
-    
+        }
+        li:hover:before{
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: white 1px 1px 5px 1px;
+            width: 100%;
+            height: 100%;
         }
     }
 }
