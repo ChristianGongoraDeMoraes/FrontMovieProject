@@ -2,6 +2,7 @@
     <!--<app-header/>
     <div class="shadowBoxHeader"></div>-->
     <div class="search">
+        <p class="moviesPr">MoviesPr</p>
         <input type="text" placeholder="Search" (change)="searchQuery($event)">
         <span class="buttonSearch">
             <mat-icon>
@@ -21,8 +22,8 @@
     </div>
     <div class="movies">
         @for (movie of movies; track movie.name) {
-            <li>
-                <div class="cardMovie" (click)="showMovie(movie.name)">
+            <li (click)="showMovie(movie.name)">
+                <div class="cardMovie">
                     <img class="img" src="http://localhost:8080/image/get/image/movie/{{movie.name}}"/>
                     <p> {{ movie.name }} </p>
                     <p> {{ movie.rate }}<img class="star" src="/star.png"></p>

@@ -84,9 +84,11 @@ export class ShowMovieComponent implements OnInit{
   }
 
   commentindex(comment: any){
-    for(let c of this.comments){
+    let reversedArray = [...this.comments];
+    reversedArray.reverse();
+    for(let c of reversedArray){
       if(c.id == comment.id){
-        return this.comments.indexOf(comment);
+        return reversedArray.indexOf(comment);
       }
     }
     return 0;

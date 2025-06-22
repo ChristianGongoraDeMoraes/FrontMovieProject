@@ -4,10 +4,23 @@
 }
 .container{
     border-collapse: collapse;
+    min-height: calc(100vh - 70px);
 
+      background: linear-gradient(90deg, 
+        rgb(0, 0, 0) 0%,
+        
+        #794800 25%,
+        rgb(104, 67, 0) 85%,
+        
+        rgb(0, 0, 0) 100%)
+        repeat 0% 0% / 100% 100%;
+        background-attachment: fixed;
+        backdrop-filter: blur(50px);
+
+    z-index: -50;
     //height: 100%;
     //width: 100%;
-
+     //backdrop-filter: blur(100);
     
     display: flex;   
     flex-direction: column;
@@ -18,33 +31,44 @@
 
     
     .card{
+        box-shadow: rgba(255, 145, 0, 0.452) 0.1px 0.1px 10px 1px;
+        max-width: 70%;
+        margin: 20px auto;
+
         min-height: 0;
         display: flex;
-        background-color: rgb(182, 182, 182);
+        background-color: rgba(0, 0, 0, 0.829);
+        backdrop-filter: blur(50);
 
         border-radius: 20px;
         
-        margin: 20px;
+        //margin: 20px;
         flex-direction:row;
         
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
-        padding: 2px;
+        //gap: 10px;
+        //padding: 2px;
 
         img{
             display: block;
             height: 400px;
             width: 400px;
-           
-            border: 1px solid rgb(255, 255, 255);
+            //box-shadow: rgba(255, 0, 0, 0.575) 0.1px 0.1px 3px;
+            //box-shadow: white 0.1px 0.1px 2px 0.1px;
+            border: 2px solid rgb(0, 0, 0);
             border-radius: 20px;
             padding: 0;
             margin: 0;
         }
         .infos{
-            background-color: rgba(255, 255, 255, 0.507);
+            border: 2px solid rgb(0, 0, 0);
+            //min-height: 100px;
+            //box-shadow: rgba(255, 0, 0, 0.575) 0.1px 0.1px 3px;
+            //box-shadow: white 0.1px 0.1px 2px 0.1px;
+            background-color: rgba(0, 0, 0, 0.884);
+            color: white;
             border-radius: 20px;
 
             margin: 0;
@@ -57,7 +81,7 @@
                 margin: 5px 10px;
                 text-align: center;
                 font-size: 15px;
-                font-weight: 700;
+                font-weight: 400;
 
                 word-break:keep-all;
                 max-width: 500px;
@@ -70,8 +94,9 @@
     .chat{
         //background-color: rgba(255, 255, 255, 0.507);
         border-radius: 20px;
+        margin: 0 auto;
 
-        width: 100%;
+        max-width: 70%;
         //padding: 0 auto;
         padding: 5px;
 
@@ -87,12 +112,14 @@
             
             width: 100%;
             input{
+                box-shadow: rgba(255, 123, 0, 0.575) 0.1px 0.1px 3px;
                 border: 2px solid black;
                 border-radius: 10px;
                 width: 80%;
                 padding: 15px;
             }
             button{
+                box-shadow: rgba(255, 123, 0, 0.575) 0.1px 0.1px 3px;
                 margin: 10px;
                 border-radius: 10px;
                 background-color: rgb(190, 190, 190);
@@ -109,6 +136,8 @@
             }
         }
         li{
+            position: relative;
+
             background-color: rgba(201, 201, 201, 0.747);
             border:1px solid white;
             border-radius: 20px;
@@ -125,10 +154,27 @@
             list-style-type: none;
             .comment{
                 display: flex;
+                word-break: break-all;
                 .name{
+                    //font-size: 20%;
+                    position: absolute;
+                    top: -5px;
+                    left: 3px;
+
                     text-wrap-mode: nowrap;
-                    color: rgb(255, 255, 0);
-                    text-shadow: black 0.3px 0.3px 2px, black -0.3px -0.3px 2px;
+                    background: -webkit-linear-gradient(10deg,
+                    #ff0000 0%,
+                     #fbff00 30%,
+                     rgb(255, 0, 255) 50%,
+                     rgb(0, 217, 255) 70%,
+                     blue 80%,
+                    green 100%)
+                     repeat 0% 0% / 300% 100%;
+                      //filter: blur(10px);
+                    -webkit-background-clip: text;
+                    //-webkit-text-fill-color: transparent;
+                    -webkit-animation:  rgb 1s linear infinite;
+                    //text-shadow: rgb(0, 0, 0) 0.1px 0.1px 0.1px, rgb(0, 0, 0) -0.1px -0.1px 0.1px;
                 }
             }
         }
@@ -137,4 +183,10 @@
         }
     }
  
+}
+
+@keyframes rgb{
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
