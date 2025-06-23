@@ -1,6 +1,7 @@
 ![image](https://github.com/user-attachments/assets/44066776-a6ed-4d14-ab3b-4ef6573a4837)
 Pagina de filmes mais quentes contem 5 particulas de fogo, e um fundo que altera entre Vermelho e Laranja/Preto.
-![image](https://github.com/user-attachments/assets/be31d115-89c8-46c4-bb4f-b0e4f88d7ce2)
+![image](https://github.com/user-attachments/assets/8b01a1f3-e640-43ae-9b8c-dbef7d7949c3)
+
 
 Att 23/06
 ------------------------------------------------------------------------------------------------------------------
