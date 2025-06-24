@@ -22,7 +22,10 @@ type Movie = {
 })
 export class MoviesComponent implements OnInit{
   movies: Array<Movie> = [];
+  currentPage: number = 1;
   
+  query: string = "";
+
   http = inject(HttpService);
   dtsShowMovie = inject(CardToShowService);
   router = inject(Router);
@@ -30,6 +33,27 @@ export class MoviesComponent implements OnInit{
 
   ngOnInit(): void {
       this.getMovies();
+  }
+
+  nextPage(){
+    this.currentPage = this.currentPage + 1;
+
+    if(this.query != ""){
+      this.searchQuery();
+    }else{
+      this.getMovies();
+    }
+  }
+  prevPage(){
+    if(this.currentPage == 1) return;
+
+    this.currentPage = this.currentPage - 1;
+
+    if(this.query != ""){
+      this.searchQuery();
+    }else{
+      this.getMovies();
+    }
   }
 
   showMovie(name: string){
@@ -40,19 +64,41 @@ export class MoviesComponent implements OnInit{
       }
     }
   }
-
-  searchQuery(event: any){
-    if(event.target.value === ''){
+  searchQuery(){
+    if(this.query === ''){
       this.movies = [];
       return this.getMovies();
     }
 
-    this.http.getMovieByNameLike(event.target.value).subscribe({
+    this.http.getMovieByNameLike(this.query, this.currentPage).subscribe({
       next: (data: any) =>{
         this.movies = [];
         for(let movie of data){
           this.movies.push(movie)
         }
+        //this.query = '';
+      },
+      error: (error: any) =>{
+        console.log('Erro');
+      }
+    })
+  }
+  searchQuery2(){
+    if(this.query === ''){
+      this.movies = [];
+      return this.getMovies();
+    }
+    
+    this.currentPage = 1;
+
+
+    this.http.getMovieByNameLike(this.query, this.currentPage).subscribe({
+      next: (data: any) =>{
+        this.movies = [];
+        for(let movie of data){
+          this.movies.push(movie)
+        }
+        //this.query = '';
       },
       error: (error: any) =>{
         console.log('Erro');
@@ -62,7 +108,8 @@ export class MoviesComponent implements OnInit{
 
 
   getMovies(){
-    this.http.getAllMovies().subscribe({
+    this.movies = [];
+    this.http.getAllMovies(this.currentPage).subscribe({
       next: (data: any) => {
         for(let movie of data){
           this.movies.push(movie)

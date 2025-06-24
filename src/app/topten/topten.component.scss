@@ -117,7 +117,11 @@
             img{
                 height: 100%;
                 width: 100%;
-                box-shadow: white 0.1px -0.1px 20px 3px;
+            }
+            .card{
+              animation: levantarCarta 1s; //cubic-bezier(0.8, 1, 1, 0.8);
+              transform: rotateX(15deg) skew(2deg);
+              box-shadow: white 0.1px -0.1px 20px 3px, black -1px 10px 10px 10px;
             }
             .card::before{
                 background-color: rgba(255, 255, 255, 0.699);
@@ -126,18 +130,21 @@
             }
             p{
                 display: inline;
+                
             }
             .desc{
+                word-break: break-all;
                 overflow: hidden;
-                font-size: 10px;
-                padding: 4px 20px;
+                //font-weight: 400;
+                font-size: 13px;
+                //padding: 4px 20px;
                 //background-color: rgba(0, 0, 0, 0.418);
                 border-radius: 20px;
             }
             p{
                 text-align: center;
-                width: 50%;
-                padding: 4px 20px;
+                width: 90%;
+                padding: 8px 5px;
                 background-color: rgba(0, 0, 0, 0.863);
                 border-radius: 20px;
                 color: white;
@@ -171,13 +178,13 @@
     background: linear-gradient(15deg,
     rgb(138, 0, 0) 0%,
     rgb(117, 76, 0) 50%,
-    rgb(139, 139, 139) 100%)
+    rgb(0, 0, 0) 100%)
     repeat 0% 0% / 200% 100%;
     //background-attachment: fixed;
     
     position: fixed;
     backdrop-filter: blur(50px);
-    animation: fire 10s cubic-bezier(1, 0.1, 0.1, 1) infinite;
+    animation: fire 5s cubic-bezier(1, 0.1, 0.1, 1) infinite;
 }
 @keyframes fire {
     0% {background-position: 0% 50%;}
@@ -298,5 +305,16 @@
     border-radius: 100%;
     width: 3px;
     background: rgb(0, 0, 0);
+  }
+}
+
+@keyframes levantarCarta {
+  0%{
+    transform: rotateX(0deg) skew(0deg);
+    box-shadow: none;
+  }
+  100%{
+    transform: rotateX(15deg) skew(2deg);
+    box-shadow: white 0.1px -0.1px 20px 3px, black -1px 10px 10px 10px;
   }
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -46,15 +46,21 @@ export class HttpService {
   }
 
 
-  getAllMovies(): Observable<any>{
-      let _url: string = (this.url + "Api/Movie")
-      return this.http.get(_url);
+  getAllMovies(currentPage: number): Observable<any>{
+      let _url: string = (this.url + "Api/Movie");
+      currentPage = currentPage - 1;
+      let params = new HttpParams()
+    .set('pageNo', currentPage);
+      return this.http.get(_url, {params});
   }
 
 
-  getMovieByNameLike(name: string): Observable<any>{
+  getMovieByNameLike(name: string, currentPage: number): Observable<any>{
     let _url: string = (this.url + `Api/Movie/searchLike/${name}`);
-    return this.http.get(_url);
+    currentPage = currentPage - 1;
+    let params = new HttpParams()
+    .set('pageNo', currentPage);
+    return this.http.get(_url, {params});
   }
 
   postNewMovie(movie: reqNewMovie): Observable<any>{

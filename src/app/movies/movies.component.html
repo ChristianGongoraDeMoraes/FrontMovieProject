@@ -3,8 +3,8 @@
     <div class="shadowBoxHeader"></div>-->
     <div class="search">
         <p class="moviesPr">MoviesPr</p>
-        <input type="text" placeholder="Search" (change)="searchQuery($event)">
-        <span class="buttonSearch">
+        <input type="text" placeholder="Search" [(ngModel)]="query">
+        <span class="buttonSearch" (click)="searchQuery2()">
             <mat-icon>
                 search
             </mat-icon>
@@ -30,10 +30,21 @@
                     <p class="desc"> {{ movie.description }} </p>
                 </div>
             </li>
-    
-    
         } @empty {
             <li class="noitems">There are no items.</li>
         }
+        <div class="pagination">
+            <button (click)="prevPage()">
+                <mat-icon>
+                arrow_back
+                </mat-icon>
+            </button>
+            <p>{{ currentPage }}</p>
+            <button (click)="nextPage()">
+                <mat-icon>
+                arrow_forward
+                </mat-icon>
+            </button>
+        </div>
     </div>
 </div>
