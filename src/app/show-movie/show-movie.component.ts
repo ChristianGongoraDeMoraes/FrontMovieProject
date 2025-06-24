@@ -4,6 +4,7 @@ import { CardToShowService } from '../services/dts/card-to-show.service';
 import { HttpService } from '../services/http.service';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 type Movie = {
   id: number,
@@ -26,7 +27,10 @@ export class ShowMovieComponent implements OnInit{
   dtsShowMovie = inject(CardToShowService);
   http = inject(HttpService);
 
-
+  /**
+   *
+   */
+  constructor(private router:Router) {}
   comments: Comment[] = []
   newComment: string = '';
 
@@ -34,7 +38,6 @@ export class ShowMovieComponent implements OnInit{
   
   ngOnInit(): void {
     this.movie = this.dtsShowMovie.getMovie();
-
     this.getAllComments();
 
     this.postViwes();
@@ -47,6 +50,7 @@ export class ShowMovieComponent implements OnInit{
       },
       error: (error: any) => {
         console.log('error send views')
+        this.router.navigate(['Movies'])
       }
     });
   }
